@@ -6,9 +6,13 @@ let jogadores = [
     { nome: "Geovana", vitorias: 90, derrotas: 17 }
 ];
 
-// Função para calcular o nível do jogador
-function calcularNivel(vitorias, derrotas) {
-    let saldoVitorias = vitorias - derrotas;
+// Função para calcular o saldo de vitórias
+function calcularSaldoVitorias(vitorias, derrotas) {
+    return vitorias - derrotas;
+}
+
+// Função para determinar o nível do jogador
+function calcularNivel(saldoVitorias) {
     let nivel;
 
     // Verifica o nível com base no saldo de vitórias
@@ -35,6 +39,7 @@ function calcularNivel(vitorias, derrotas) {
 for (let i = 0; i < jogadores.length; i++) { // .length retorna o número de elementos do array 
     let jogador = jogadores[i];
     // Para acessar informação específica dentro do array, se usa a notação de ponto (.) seguida pelo nome da propriedade desejada
-    let nivel = calcularNivel(jogador.vitorias, jogador.derrotas);
-    console.log(`${jogador.nome} tem saldo de ${jogador.vitorias - jogador.derrotas} pontos e está no nível de ${nivel}`);
+    let saldoVitorias = calcularSaldoVitorias(jogador.vitorias, jogador.derrotas);
+    let nivel = calcularNivel(saldoVitorias);
+    console.log(`${jogador.nome} tem saldo de ${saldoVitorias} pontos e está no nível de ${nivel}`);
 }
